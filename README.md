@@ -25,6 +25,17 @@ Remote URL analysis then showed that the link passed through tracking/redirect i
 
 At the time of analysis, the destination domain was approximately 17 days old and the server returned a Cloudflare `521 Web server is down` response. Because the destination was unavailable, the final payload or credential-harvesting behavior could not be confirmed.
 
+## Attack path observed
+
+```mermaid
+flowchart LR
+    A[Payment-themed email] --> B[PDF attachment]
+    B --> C[Misleading embedded hyperlink]
+    C --> D[Tracking / redirect infrastructure]
+    D --> E[Newly registered unrelated domain]
+    E --> F[Cloudflare 521 at analysis time]
+```
+
 ## Investigation workflow
 
 1. Preserved the original `.eml` instead of relying on a forwarded copy.
@@ -55,9 +66,9 @@ At the time of analysis, the destination domain was approximately 17 days old an
 
 ## Evidence
 
-A sanitized screenshot from the remote URL analysis is included below. Unique tracking paths and organization-specific information are excluded from this repository.
+A sanitized remote-analysis screenshot has been prepared for this case. It is being kept out of the repository until the final public-disclosure review is complete so that no tracking token or organization-specific detail is accidentally published.
 
-![Sanitized remote URL analysis](screenshots/urlscan-summary.png)
+The technical observations from that evidence are documented in [`analysis/url-analysis.md`](analysis/url-analysis.md).
 
 ## Repository structure
 
@@ -72,8 +83,6 @@ A sanitized screenshot from the remote URL analysis is included below. Unique tr
 │   └── iocs.md
 ├── methodology/
 │   └── investigation-workflow.md
-├── screenshots/
-│   └── urlscan-summary.png
 └── SECURITY-NOTES.md
 ```
 
