@@ -66,7 +66,9 @@ flowchart LR
 
 ## Evidence
 
-A sanitized remote-analysis screenshot has been prepared for this case. It is being kept out of the repository until the final public-disclosure review is complete so that no tracking token or organization-specific detail is accidentally published.
+Below is a sanitized screenshot from the remote URL analysis. Organization-specific details and unique tracking information were removed before publication.
+
+![Sanitized remote URL analysis](screenshots/urlscan-summary.jpg)
 
 The technical observations from that evidence are documented in [`analysis/url-analysis.md`](analysis/url-analysis.md).
 
@@ -78,11 +80,14 @@ The technical observations from that evidence are documented in [`analysis/url-a
 ├── analysis/
 │   ├── email-header-analysis.md
 │   ├── pdf-analysis.md
+│   ├── timeline.md
 │   └── url-analysis.md
 ├── indicators/
 │   └── iocs.md
 ├── methodology/
 │   └── investigation-workflow.md
+├── screenshots/
+│   └── urlscan-summary.jpg
 └── SECURITY-NOTES.md
 ```
 
